@@ -1,17 +1,23 @@
-import { Bell, Globe, MapPinned, Search, ShoppingBasket, UserPen } from "lucide-react";
+import { Search } from "lucide-react";
+
+import AddressDropDown from "@/components/home/header/AddressDropdown";
+import NotificatonDropdown from "@/components/home/header/NotificatonDropdown";
+import LanguageDropdown from "@/components/home/header/LanguageDropdown";
+import BusketDropdown from "@/components/home/header/BusketDropdown";
+import ProfileDropdown from "@/components/home/header/ProfileDropdown";
 
 const Home = () => {
   return (
     <>
-      <header className="flex items-center justify-between p-5 w-full border-b border-b-gray-800">
-        <div className="flex items-center justify-between gap-5">
+      <header className="flex items-center gap-3 px-5 py-3 w-full border-b border-b-gray-800">
+        <div className="flex items-center gap-5 grow">
           <img width={70} height={70} src="/icons/logo.png" alt="header-logo" />
-          <div className="ml-5 border-2 border-green-600 rounded-2xl overflow-hidden">
-            <form className="flex w-[430px]" action="#">
+          <div className="ml-5 border-2 border-green-600 rounded-2xl grow shrink basis-[430px] max-w-[430px] overflow-hidden">
+            <form className="flex w-full" action="#">
               <div className="flex items-center gap-3 p-3 w-full">
                 <Search color="green" />
                 <input
-                  className="focus:outline-none w-full truncate placeholder:opacity-100 focus:placeholder:opacity-0"
+                  className="focus:outline-none w-full h-full truncate placeholder:opacity-100 focus:placeholder:opacity-0"
                   type="text"
                   placeholder="Search for restaurants, food and products"
                 />
@@ -22,27 +28,14 @@ const Home = () => {
               </button>
             </form>
           </div>
-          <button className="flex gap-2 items-center p-3 bg-green-600 opacity-90 hover:opacity-100 transition-opacity duration-200 rounded-2xl border-2 border-green-600">
-            <MapPinned color="white" />
-            <span className="text-white">Enter delivery address</span>
-          </button>
+
+          <AddressDropDown />
         </div>
-        <div className="flex items-center gap-10">
-          <button className="flex flex-col items-center gap-0.5 cursor-pointer">
-            <Bell />
-            <span>Notifications</span>
-          </button>
-          <button className="flex flex-col items-center gap-0.5 cursor-pointer">
-            <Globe />
-            <span>Language</span>
-          </button>
-          <button className="flex gap-2 items-center p-3 bg-green-600 opacity-90 hover:opacity-100 transition-opacity duration-200 rounded-2xl border-2 border-green-600">
-            <ShoppingBasket color="white" />
-            <span className="text-white font-bold">30,000 sum</span>
-          </button>
-          <div className="bg-green-600 rounded-full p-2 cursor-pointer">
-            <UserPen color="white" height={40} width={40}/>
-          </div>
+        <div className="flex items-center 2xl:gap-8 gap-5 flex-none">
+          <NotificatonDropdown />
+          <LanguageDropdown />
+          <BusketDropdown />
+          <ProfileDropdown />
         </div>
       </header>
       <aside></aside>
