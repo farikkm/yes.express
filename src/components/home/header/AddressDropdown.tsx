@@ -43,7 +43,7 @@ const AddressDropDown = () => {
     <DropdownMenu>
       <DropdownMenuTrigger
         className="flex gap-2 items-center p-3 max-w-[200px] w-fit
-   bg-green-600 opacity-90 hover:opacity-100 transition-opacity duration-200 rounded-2xl border-2 border-green-600"
+   bg-green-600 opacity-90 hover:opacity-100 transition-opacity duration-200 rounded-2xl"
       >
         <MapPinned width={30} height={30} className="shrink-0" color="white" />
         <span className="text-white truncate select-none">
