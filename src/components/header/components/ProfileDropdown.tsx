@@ -5,10 +5,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  UserPen,
-} from "lucide-react";
-import DropdownMenuOverlay from "./components/DropdownMenuOverlay";
+import { UserPen } from "lucide-react";
+import DropdownMenuOverlay from "../overlay/DropdownMenuOverlay";
 import { Link } from "react-router-dom";
 import { DropdownMenuGroup } from "@radix-ui/react-dropdown-menu";
 
@@ -39,7 +37,9 @@ const ProfileDropdown = () => {
             <span className="text-lg">My orders</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <span className="text-lg">Log out</span>
+            <Link className="block w-full" to={"/signin"}>
+              <span className="text-lg">Log out</span>
+            </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>

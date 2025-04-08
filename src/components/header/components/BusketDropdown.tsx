@@ -13,7 +13,7 @@ import {
   ShoppingBasket,
   Truck,
 } from "lucide-react";
-import DropdownMenuOverlay from "./components/DropdownMenuOverlay";
+import DropdownMenuOverlay from "../overlay/DropdownMenuOverlay";
 import { DropdownMenu, DropdownMenuGroup } from "@radix-ui/react-dropdown-menu";
 
 import foodImg from "@/assets/images/food.png";
@@ -71,31 +71,29 @@ const BusketDropdown = () => {
         <DropdownMenuSeparator />
         <DropdownMenuGroup className="px-2 py-4 space-y-2">
           {orders.map((order, index) => (
-            <>
-              <div
-                className="flex gap-5 items-center not-last:border-b not-last:border-b-gray-200 pb-1"
-                key={index}
-              >
-                <img src={foodImg} width={40} height={40} alt="food-img" />
-                <div className="flex flex-col items-start gap-0.5 space-y-1 grow select-none">
-                  <h5 className="text-lg/tight max-w-[200px] font-medium">
-                    {order.name}
-                  </h5>
-                  <div className="text-gray-400 text-sm flex items-center">
-                    <span className="font-bold text-black">{order.price}</span>
-                    <Dot />
-                    <span>{order.weight}</span>
-                  </div>
-                </div>
-                <div className="flex items-center bg-gray-200 p-1 rounded-2xl gap-2">
-                  <Plus className="p-1 rounded-2xl hover:bg-gray-300" />
-                  <span className="text-black font-bold text-lg">
-                    {order.quantity}
-                  </span>
-                  <Minus className="p-1 rounded-2xl hover:bg-gray-300" />
+            <div
+              className="flex gap-5 items-center not-last:border-b not-last:border-b-gray-200 pb-1"
+              key={index}
+            >
+              <img src={foodImg} width={40} height={40} alt="food-img" />
+              <div className="flex flex-col items-start gap-0.5 space-y-1 grow select-none">
+                <h5 className="text-lg/tight max-w-[200px] font-medium">
+                  {order.name}
+                </h5>
+                <div className="text-gray-400 text-sm flex items-center">
+                  <span className="font-bold text-black">{order.price}</span>
+                  <Dot />
+                  <span>{order.weight}</span>
                 </div>
               </div>
-            </>
+              <div className="flex items-center bg-gray-200 p-1 rounded-2xl gap-2">
+                <Plus className="p-1 rounded-2xl hover:bg-gray-300" />
+                <span className="text-black font-bold text-lg">
+                  {order.quantity}
+                </span>
+                <Minus className="p-1 rounded-2xl hover:bg-gray-300" />
+              </div>
+            </div>
           ))}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
@@ -106,7 +104,7 @@ const BusketDropdown = () => {
         <DropdownMenuSeparator />
         <div className="flex items-center justify-between my-2">
           <div className="flex items-center gap-2">
-            <Truck size={40} className="bg-gray-200 p-1.5 rounded-2xl"/>
+            <Truck size={40} className="bg-gray-200 p-1.5 rounded-2xl" />
             <h4>Delivery</h4>
           </div>
 

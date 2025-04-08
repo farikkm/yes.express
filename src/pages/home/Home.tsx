@@ -1,45 +1,28 @@
-import { Search } from "lucide-react";
-
-import AddressDropDown from "@/components/home/header/AddressDropdown";
-import NotificatonDropdown from "@/components/home/header/NotificatonDropdown";
-import LanguageDropdown from "@/components/home/header/LanguageDropdown";
-import BusketDropdown from "@/components/home/header/BusketDropdown";
-import ProfileDropdown from "@/components/home/header/ProfileDropdown";
+import Header from "@/components/header/Header";
+import Slider from "@/components/slider/Slider";
 
 const Home = () => {
   return (
     <>
-      <header className="flex items-center gap-3 px-5 py-3 w-full border-b border-b-gray-800">
-        <div className="flex items-center gap-5 grow">
-          <img width={70} height={70} src="/icons/logo.png" alt="header-logo" />
-          <div className="ml-5 border-2 border-green-600 rounded-2xl grow shrink basis-[430px] max-w-[430px] overflow-hidden">
-            <form className="flex w-full" action="#">
-              <div className="flex items-center gap-3 p-3 w-full">
-                <Search color="green" />
-                <input
-                  className="focus:outline-none w-full h-full truncate placeholder:opacity-100 focus:placeholder:opacity-0"
-                  type="text"
-                  placeholder="Search for restaurants, food and products"
-                />
-              </div>
-
-              <button className="px-5 bg-green-600 text-white opacity-90 hover:opacity-100 transition-opacity duration-200 cursor-pointer">
-                Search
-              </button>
-            </form>
-          </div>
-
-          <AddressDropDown />
+      <Header />
+      <main className="mt-4">
+        <div className="container mx-auto px-5 space-y-4">
+          <h2 className="text-3xl font-bold">Вы заказывали: </h2>
+          <Slider />
         </div>
-        <div className="flex items-center 2xl:gap-8 gap-5 flex-none">
-          <NotificatonDropdown />
-          <LanguageDropdown />
-          <BusketDropdown />
-          <ProfileDropdown />
+        <div className="container mx-auto px-5 space-y-4">
+          <h2 className="text-3xl font-bold">Вы заказывали: </h2>
+          <Slider />
         </div>
-      </header>
-      <aside></aside>
-      <div className="dashboard"></div>
+        <div className="container mx-auto px-5 space-y-4">
+          <h2 className="text-3xl font-bold">Вы заказывали: </h2>
+          <Slider />
+        </div>
+        <div className="container mx-auto px-5 space-y-4">
+          <h2 className="text-3xl font-bold">Вы заказывали: </h2>
+          <Slider />
+        </div>
+      </main>
     </>
   );
 };

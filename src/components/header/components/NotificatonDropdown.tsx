@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { DropdownMenuGroup } from "@radix-ui/react-dropdown-menu";
 import { ArrowLeft, Bell, EllipsisVertical, Mail, Search } from "lucide-react";
 import { useState } from "react";
-import DropdownMenuOverlay from "./components/DropdownMenuOverlay";
+import DropdownMenuOverlay from "../overlay/DropdownMenuOverlay";
 
 const NotificatonDropdown = () => {
   const [isSearch, setIsSearch] = useState(false);

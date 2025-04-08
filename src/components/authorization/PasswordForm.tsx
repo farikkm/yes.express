@@ -39,7 +39,7 @@ const PasswordForm = () => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
-    navigate("/user/dashboard")
+    navigate("/")
   }
 
   return (
