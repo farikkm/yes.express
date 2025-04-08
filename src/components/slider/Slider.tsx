@@ -25,9 +25,6 @@ const Slider = () => {
         },
       },
     },
-    [
-      // add plugins here
-    ]
   );
 
   const handleNext = () => {
