@@ -110,6 +110,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   --breakpoint-iphone-se: 375px;
+  --breakpoint-laptop-l: 1440px
 }
 
 @layer base {

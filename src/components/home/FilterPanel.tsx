@@ -1,10 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { ArrowUpNarrowWide } from "lucide-react";
 
 const filterOptions = [
+  "Chicken",
+  "Meat",
+  "Fish",
+  "Vegetarian",
+  "Vegan",
   "Chicken",
   "Meat",
   "Fish",
@@ -24,23 +28,24 @@ export default function FilterPanel() {
   };
 
   return (
-    <div className="my-10 flex justify-between items-center flex-wrap gap-2 p-2 bg-gray-100 rounded-2xl w-full">
-      {filterOptions.map((option) => (
-        <Button
-          key={option}
-          variant={activeFilters.includes(option) ? "ghost" : "outline"}
-          onClick={() => toggleFilter(option)}
-          className="rounded-full py-6 px-5 bg-transparent hover:bg-gray-300 outline-none border-none ring-0"
-        >
-          {option}
-        </Button>
-      ))}
-      <Button
-        className="text-black rounded-full py-6 px-5 bg-transparent hover:bg-gray-300 outline-none border-none ring-0"
-      >
-        <ArrowUpNarrowWide />
-        Sorting
-      </Button>
+    <div className="my-10">
+      <h3 className="flex items-center  gap-2 text-black rounded-full py-2 px-3 bg-transparent border-none ring-0">
+        <ArrowUpNarrowWide size={35}/>
+        <span className="text-3xl font-bold">Sorting</span>
+      </h3>
+      <div className="flex justify-between items-center flex-wrap gap-2 p-2 bg-gray-50 rounded-2xl w-full">
+        {filterOptions.map((option) => (
+          <button
+            key={option}
+            onClick={() => toggleFilter(option)}
+            className={`rounded-full py-2 px-3 ${
+              activeFilters.includes(option) ? "bg-gray-200" : "bg-transparent"
+            } hover:bg-gray-300 border-none ring-0`}
+          >
+            {option}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
