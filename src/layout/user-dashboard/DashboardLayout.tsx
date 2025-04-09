@@ -4,7 +4,7 @@ import Sidebar from "@/components/user-dashboard/Sidebar";
 const DashboardLayout = () => {
   return (
     <div className="h-screen overflow-hidden">
-      <div className="absolute w-full left-0 top-10 flex justify-center">
+      <div className="absolute -z-1 w-full left-0 top-10 flex justify-center">
         <img width={200} height={200} src="/icons/logo.png" alt="dashboard-logo" />
       </div>
 
