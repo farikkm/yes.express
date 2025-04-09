@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import LoadingScreen from "./components/app/LoadingScreen";
 import NotFound from "@/pages/NotFound";
+import RestaurantById from "./pages/restaurant/RestaurantById";
 
 const Home = lazy(() => import("@/pages/home/Home"))
 const SignIn = lazy(() => import("@/pages/authorization/SignIn"));
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/welcome" element={<Password />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/restaurant/:id" element={<RestaurantById />} />
           <Route path="/user/dashboard/" element={<DashboardLayout />}>
             <Route index element={<Navigate to="profile" replace />} />
             <Route path="orders" element={<Orders />} />
