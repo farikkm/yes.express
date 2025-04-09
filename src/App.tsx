@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import LoadingScreen from "./components/app/LoadingScreen";
 import NotFound from "@/pages/NotFound";
-import Home from "./pages/home/Home";
 
+const Home = lazy(() => import("@/pages/home/Home"))
 const SignIn = lazy(() => import("@/pages/authorization/SignIn"));
 const Password = lazy(() => import("@/pages/authorization/Password"));
 const Login = lazy(() => import("@/pages/authorization/LogIn"));
