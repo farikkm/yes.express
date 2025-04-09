@@ -10,11 +10,6 @@ const filterOptions = [
   "Fish",
   "Vegetarian",
   "Vegan",
-  "Chicken",
-  "Meat",
-  "Fish",
-  "Vegetarian",
-  "Vegan",
 ];
 
 export default function FilterPanel() {
@@ -33,7 +28,7 @@ export default function FilterPanel() {
       {filterOptions.map((option) => (
         <Button
           key={option}
-          variant={activeFilters.includes(option) ? "default" : "outline"}
+          variant={activeFilters.includes(option) ? "ghost" : "outline"}
           onClick={() => toggleFilter(option)}
           className="rounded-full py-6 px-5 bg-transparent hover:bg-gray-300 outline-none border-none ring-0"
         >

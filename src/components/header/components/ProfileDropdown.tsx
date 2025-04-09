@@ -28,13 +28,9 @@ const ProfileDropdown = () => {
         <DropdownMenuSeparator />
         <DropdownMenuGroup className="space-y-2">
           <DropdownMenuItem>
-            <span className="text-lg">My Information</span>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <span className="text-lg">My Addresses</span>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <span className="text-lg">My orders</span>
+            <Link className="block w-full" to={"/user/dashboard"}>
+              <span className="text-lg">My Information</span>
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Link className="block w-full" to={"/signin"}>
