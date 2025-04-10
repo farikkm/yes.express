@@ -4,12 +4,32 @@ import NotificatonDropdown from "./components/NotificatonDropdown";
 import LanguageDropdown from "./components/LanguageDropdown";
 import BusketDropdown from "./components/BusketDropdown";
 import ProfileDropdown from "./components/ProfileDropdown";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="flex items-center gap-3 px-5 py-3 w-full border-b border-b-gray-800">
+    <header
+      className={`fixed top-0 left-0 flex items-center gap-3 px-5 py-3 w-full transition-all duration-500 ${
+        isScrolled ? "shadow-md" : "outline outline-black shadow-none"
+      }  z-10 bg-white`}
+    >
       <div className="flex items-center gap-5 grow">
-        <img width={70} height={70} src="/icons/logo.png" alt="header-logo" />
+        <Link to={"/"}>
+          <img width={70} height={70} src="/icons/logo.png" alt="header-logo" />
+        </Link>
+
         <div className="ml-5 border-2 border-green-600 rounded-2xl grow shrink basis-[430px] max-w-[430px] overflow-hidden">
           <form className="flex w-full" action="#">
             <div className="flex items-center gap-3 p-3 w-full">

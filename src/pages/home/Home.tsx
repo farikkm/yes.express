@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <>
       <Header />
-      <main className="mt-4">
+      <main className="mt-30">
         <div className="container mx-auto px-5 space-y-4">
           <h2 className="text-3xl font-bold">Вы заказывали: </h2>
           <Slider />

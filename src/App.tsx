@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import LoadingScreen from "./components/app/LoadingScreen";
 import NotFound from "@/pages/NotFound";
-import RestaurantById from "./pages/restaurant/RestaurantById";
 
 const Home = lazy(() => import("@/pages/home/Home"))
 const SignIn = lazy(() => import("@/pages/authorization/SignIn"));
@@ -21,6 +20,8 @@ const Notifications = lazy(
   () => import("@/pages/user-dashboard/Notifications")
 );
 const Help = lazy(() => import("@/pages/user-dashboard/Help"));
+const RestaurantBySlug = lazy(() => import("@/pages/restaurant/RestaurantBySlug"));
+// const RestaurantById = lazy(() => import("@/pages/restaurant/RestaurantById"));
 
 const App = () => {
   return (
@@ -31,7 +32,8 @@ const App = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/welcome" element={<Password />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/restaurant/:id" element={<RestaurantById />} />
+          {/* <Route path="/restaurant/:id" element={<RestaurantById />} /> */}
+          <Route path="/restaurant/:slug" element={<RestaurantBySlug />} />
           <Route path="/user/dashboard/" element={<DashboardLayout />}>
             <Route index element={<Navigate to="profile" replace />} />
             <Route path="orders" element={<Orders />} />

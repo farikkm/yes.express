@@ -122,6 +122,15 @@
   }
 }
 
+/* Scroll bar */
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Tailwind */
+
 .authorization_text_color {
   @apply text-gray-200;
 }

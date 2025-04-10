@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import restaurantBg from "@/assets/images/restaurant-bg.jpg";
 import foodImg from "@/assets/images/food-2.jpeg";
+import RestaurantBadge from "@/components/restaurant/RestaurantBadge";
 
 const categories = [
   "What's new",
@@ -23,9 +24,9 @@ const RestaurantById = () => {
   return (
     <div className="bg-gray-100 h-full">
       <Header />
-      <div className="container mx-auto px-5 mt-8 flex gap-10">
+      <div className="container mx-auto px-5 pt-30 flex gap-10">
         <aside className="w-55 relative">
-          <div className="sticky w-55">
+          <div className="fixed w-55">
             <Link
               className="mb-4 bg-gray-200 hover:bg-gray-300 transition-all duration-200 px-2 py-4 w-full inline-flex items-center gap-2 rounded-2xl"
               to={"/"}
@@ -64,20 +65,8 @@ const RestaurantById = () => {
             <div className="absolute top-[50%] left-10">
               <h2 className="text-6xl font-bold text-white">KFC</h2>
               <div className="mt-6 flex items-center gap-2">
-                <div className="flex items-center gap-2 bg-gray-200 opacity-90 px-5 py-2 rounded-2xl">
-                  <Truck size={25} />
-                  <div className="flex flex-col leading-none">
-                    <span className="text-xl font-bold">15-25</span>
-                    <span className="text-sm text-gray-500 -mt-2">min</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 bg-gray-200 opacity-90 px-5 py-2 rounded-2xl">
-                  <Star fill="black" size={25} />
-                  <div className="flex flex-col leading-none">
-                    <span className="text-xl font-bold">4.6</span>
-                    <span className="text-sm text-gray-500 -mt-2">200+</span>
-                  </div>
-                </div>
+                <RestaurantBadge icon={Truck} iconSize={25} title="15-25" subtitle="min" />
+                <RestaurantBadge icon={Star} iconSize={25} title="4.7" subtitle="500+"/>
                 <div className="flex items-center gap-2 bg-gray-200 opacity-90 px-5 py-2 rounded-2xl">
                   <Info size={40} />
                 </div>
@@ -91,7 +80,7 @@ const RestaurantById = () => {
 
               <div className="mt-4 grid grid-cols-[repeat(3,1fr)] gap-y-[16px] gap-x-[16px] laptop-l:grid-cols-[repeat(4,1fr)]">
                 {[...Array(4)].map((_, index) => (
-                  <div key={index} className="p-4 bg-white w-fit rounded-2xl">
+                  <div key={index} className="p-4 bg-white w-full rounded-2xl">
                     <img src={foodImg} alt="food-img" />
                     <div className="space-y-1 mt-2">
                       <h4 className="text-3xl font-medium">55 000 sum</h4>
@@ -113,7 +102,7 @@ const RestaurantById = () => {
               <h2 className="text-4xl font-bold">What's new</h2>
               <div className="mt-4 grid grid-cols-[repeat(3,1fr)] gap-y-[16px] gap-x-[16px] laptop-l:grid-cols-[repeat(4,1fr)]">
                 {[...Array(4)].map((_, index) => (
-                  <div key={index} className="p-4 bg-white w-fit rounded-2xl">
+                  <div key={index} className="p-4 bg-white w-full rounded-2xl">
                     <img src={foodImg} alt="food-img" />
                     <div className="space-y-1 mt-2">
                       <h4 className="text-3xl font-medium">55 000 sum</h4>
@@ -135,7 +124,7 @@ const RestaurantById = () => {
               <h2 className="text-4xl font-bold">Акции</h2>
               <div className="mt-4 grid grid-cols-[repeat(3,1fr)] gap-y-[16px] gap-x-[16px] laptop-l:grid-cols-[repeat(4,1fr)]">
                 {[...Array(4)].map((_, index) => (
-                  <div key={index} className="p-4 bg-white w-fit rounded-2xl">
+                  <div key={index} className="p-4 bg-white w-full rounded-2xl">
                     <img src={foodImg} alt="food-img" />
                     <div className="space-y-1 mt-2">
                       <h4 className="text-3xl font-medium">55 000 sum</h4>
