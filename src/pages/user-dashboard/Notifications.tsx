@@ -2,13 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Trash2Icon } from "lucide-react";
-
-interface Notification {
-  id: number;
-  title: string;
-  message: string;
-  isRead: boolean;
-}
+import { Notification } from "@/types/index";
 
 const Notifications = () => {
   const [notifications, setNotifications] = useState<Notification[]>([

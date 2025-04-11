@@ -2,14 +2,7 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
-
-type Order = {
-  id: string;
-  status: "Ожидается" | "В пути" | "Доставлен";
-  address: string;
-  createdAt: Date;
-  total: number;
-};
+import { Order } from "@/types/index";
 
 const mockOrders: Order[] = [
   {

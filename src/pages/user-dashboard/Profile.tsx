@@ -4,14 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { CameraIcon, LockIcon } from "lucide-react";
-import ChangePasswordModal from "@/components/user-dashboard/profile-page/ChangePasswordModal"; // Импортируем модал
+import ChangePasswordModal from "@/components/user-dashboard/modals/ChangePasswordModal";
+import { ProfileData } from "@/types/index";
 
 const Profile = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ProfileData>({
     name: "Fariz",
     email: "fariz@example.com",
     phone: "+998901234567",
-    avatar: "", // base64 или URL
+    avatar: "",
   });
 
   const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);

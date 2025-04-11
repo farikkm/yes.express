@@ -5,11 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { BadgeHelp } from "lucide-react";
-
-interface FAQ {
-  question: string;
-  answer: string;
-}
+import { FAQ } from "@/types/index";
 
 const faqs: FAQ[] = [
   { question: "Как изменить мой номер телефона?", answer: "Перейдите в настройки профиля и отредактируйте номер телефона." },

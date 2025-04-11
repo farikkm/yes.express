@@ -5,13 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Trash2Icon, EditIcon } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-
-interface PaymentMethod {
-  id: number;
-  cardNumber: string;
-  expiryDate: string;
-  cardHolder: string;
-}
+import { PaymentMethod } from '@/types/index';
 
 const PaymentMethods = () => {
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([
