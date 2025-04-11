@@ -13,7 +13,7 @@ const DashboardLayout = () => {
           <Sidebar />
           <div className="flex-1 overflow-auto">
             <main className="p-4 h-full">
-              <Outlet /> {/* Здесь будет отрисовываться нужный компонент */}
+              <Outlet />
             </main>
           </div>
         </div>
