@@ -1,4 +1,4 @@
-import Header from "@/components/header/Header";
+import Header from "@/components/header/desktop/Header";
 import { ArrowLeft, Info, Plus, Star, Truck } from "lucide-react";
 import { Link } from "react-router-dom";
 
