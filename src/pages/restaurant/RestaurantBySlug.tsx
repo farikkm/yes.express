@@ -48,7 +48,7 @@ const RestaurantBySlug = () => {
       },
       {
         root: null,
-        rootMargin: "-20% 0px -70% 0px", // Верхняя секция в приоритете
+        rootMargin: "-20% 0px -70% 0px",
         threshold: 0.1,
       }
     );

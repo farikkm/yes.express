@@ -35,6 +35,7 @@ const Header = () => {
             <div className="flex items-center gap-3 p-3 w-full">
               <Search color="green" />
               <input
+                id="restaurant-search"
                 className="focus:outline-none w-full h-full truncate placeholder:opacity-100 focus:placeholder:opacity-0"
                 type="text"
                 placeholder="Search for restaurants, food and products"
