@@ -41,7 +41,7 @@ function NotificationsPage() {
     <MobileLayout title="Notifications">
       <NavigationBar />
       <div className="mt-2">
-        <div className="border-2 border-green-600 rounded-2xl grow shrink basis-[430px] max-w-[430px] overflow-hidden">
+        <div className="border-2 border-green-600 rounded-2xl grow shrink w-full overflow-hidden">
           <form className="flex w-full relative" action="#">
             <div className="flex items-center gap-3 p-3 w-full">
               <Search color="green" />

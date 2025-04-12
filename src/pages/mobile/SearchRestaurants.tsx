@@ -37,7 +37,7 @@ export default function SearchRestaurants() {
       <NavigationBar />
 
       <div className="mt-2">
-        <div className="border-2 border-green-600 rounded-2xl grow shrink basis-[430px] max-w-[430px] overflow-hidden">
+        <div className="border-2 border-green-600 rounded-2xl grow shrink w-full overflow-hidden">
           <form
             onSubmit={handleSearch}
             className="flex w-full relative"
