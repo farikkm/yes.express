@@ -1,5 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
-import { ArrowLeft, Bell, CircleHelp, MapPinHouse, Package, User, Wallet } from "lucide-react";
+import {
+  ArrowLeft,
+  Bell,
+  CircleHelp,
+  MapPinHouse,
+  Package,
+  User,
+  Wallet,
+} from "lucide-react";
 
 const Sidebar = () => {
   const pages = [
@@ -21,17 +29,17 @@ const Sidebar = () => {
     {
       name: "Методы оплаты",
       path: "payment-methods",
-      icon: <Wallet className="w-5 h-5 md:mr-2"/>,
+      icon: <Wallet className="w-5 h-5 md:mr-2" />,
     },
     {
       name: "Уведомления",
       path: "notifications",
-      icon: <Bell className="w-5 h-5 md:mr-2"/>,
+      icon: <Bell className="w-5 h-5 md:mr-2" />,
     },
     {
       name: "Помощь",
       path: "help",
-      icon: <CircleHelp className="w-5 h-5 md:mr-2"/>,
+      icon: <CircleHelp className="w-5 h-5 md:mr-2" />,
     },
   ];
 
@@ -44,6 +52,12 @@ const Sidebar = () => {
         />
       </Link>
       <nav className="md:space-y-2 max-md:flex max-md:items-center max-md:justify-between w-full">
+        <Link className="inline-block md:hidden" to={"/"}>
+          <ArrowLeft
+            size={40}
+            className="cursor-pointer rounded-full px-1 py-1.5 bg-gray-200 hover:bg-gray-300 transition-all duration-200"
+          />
+        </Link>
         {pages.map((page, index) => (
           <NavLink
             key={index}

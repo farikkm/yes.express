@@ -46,6 +46,9 @@ const HomeMobile = () => {
         <h2 className="text-3xl font-bold">Вы заказывали: </h2>
         <SliderMobile />
       </div>
+      <div className="px-8">
+        <FilterPanel />
+      </div>
       <div className="mt-6 pl-8 space-y-2">
         <h2 className="text-3xl font-bold">Акции: </h2>
         <SliderMobile />
@@ -54,14 +57,14 @@ const HomeMobile = () => {
         <h2 className="text-3xl font-bold">Скидки: </h2>
         <SliderMobile />
       </div>
-      
+
       <div></div>
     </div>
   );
 };
 
 const Home = () => {
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isMobile = useMediaQuery({ maxWidth: 1100 });
 
   return isMobile ? <HomeMobile /> : <HomeDesktop />;
 };
