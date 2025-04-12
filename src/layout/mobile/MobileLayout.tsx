@@ -10,8 +10,8 @@ const MobileLayout = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className="mt-12">
-      <Link className="inline-block mb-4 absolute top-4 left-4" to={"/"}>
+    <div className="pt-14 px-6">
+      <Link className="absolute top-4 left-4" to={"/"}>
         <ArrowLeft
           size={40}
           className="cursor-pointer rounded-full px-1 py-1.5 bg-gray-200 hover:bg-gray-300 transition-all duration-200"

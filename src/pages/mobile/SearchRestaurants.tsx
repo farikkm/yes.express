@@ -1,23 +1,27 @@
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Search, Store } from "lucide-react";
+import { Check, Search, SlidersHorizontal } from "lucide-react";
 import NavigationBar from "@/components/header/mobile/NavigationBar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import RestaurantItem from "@/components/home/RestaurantItem";
+import MobileLayout from "@/layout/mobile/MobileLayout";
 
-const establishments = [
-  "Coffeeday Алматы",
-  "Dodo Pizza Астана",
-  "Burger King Шымкент",
-  "Korean BBQ Караганда",
-  "Sushi Master Павлодар",
-];
+const establishments = ["KFC", "KFC", "KFC", "KFC", "KFC"];
 
 export default function SearchRestaurants() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const handleSearch = () => {
+  const [selected, setSelected] = useState("restaurants");
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
     setLoading(true);
     setTimeout(() => {
       const filtered = establishments.filter((item) =>
@@ -29,41 +33,70 @@ export default function SearchRestaurants() {
   };
 
   return (
-    <>
+    <MobileLayout title="Поиск">
       <NavigationBar />
-      <div className="min-h-screen px-4 py-6 bg-gray-50">
-        <h1 className="text-xl font-semibold mb-4">Поиск заведений</h1>
 
-        <div className="flex gap-2 mb-6">
-          <Input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Введите название заведения"
-          />
-          <Button className="bg-green-500" onClick={handleSearch}>
-            <Search className="w-4 h-4 mr-2" />
-            Поиск
-          </Button>
+      <div className="mt-2">
+        <div className="border-2 border-green-600 rounded-2xl grow shrink basis-[430px] max-w-[430px] overflow-hidden">
+          <form
+            onSubmit={handleSearch}
+            className="flex w-full relative"
+            action="#"
+          >
+            <div className="flex items-center gap-3 p-3 w-full">
+              <Search color="green" />
+              <input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                id="restaurant-search"
+                className="focus:outline-none w-full h-full truncate placeholder:opacity-100 focus:placeholder:opacity-0"
+                type="text"
+                placeholder="Search"
+              />
+            </div>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger className="px-5 text-white opacity-90 hover:opacity-100 transition-opacity duration-200 cursor-pointer">
+                <SlidersHorizontal color="green" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="rounded-3xl py-2">
+                <DropdownMenuGroup>
+                  <DropdownMenuItem
+                    className="w-[130px] flex justify-between items-center"
+                    onSelect={() => setSelected("restaurants")}
+                  >
+                    <span className="text-lg">Рестораны</span>
+                    {selected === "restaurants" && (
+                      <Check className="w-4 h-4 text-green-500" />
+                    )}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    className="w-[130px] flex justify-between items-center"
+                    onSelect={() => setSelected("foods")}
+                  >
+                    <span className="text-lg">Блюда</span>
+                    {selected === "foods" && (
+                      <Check className="w-4 h-4 text-green-500" />
+                    )}
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </form>
         </div>
-
-        {loading ? (
-          <p className="text-muted-foreground">Загрузка...</p>
-        ) : results.length === 0 && query ? (
-          <p className="text-muted-foreground">Ничего не найдено</p>
-        ) : (
-          <ul className="space-y-2">
-            {results.map((res, idx) => (
-              <li
-                key={idx}
-                className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:bg-gray-100 transition"
-              >
-                <Store className="text-blue-500" />
-                <span className="font-medium">{res}</span>
-              </li>
-            ))}
-          </ul>
-        )}
       </div>
-    </>
+
+      {loading ? (
+        <p className="text-muted-foreground">Загрузка...</p>
+      ) : results.length === 0 && query ? (
+        <p className="text-muted-foreground">Ничего не найдено</p>
+      ) : (
+        <ul className="space-y-4 mt-4">
+          {results.map((_, idx) => (
+            <RestaurantItem key={idx} />
+          ))}
+        </ul>
+      )}
+    </MobileLayout>
   );
 }

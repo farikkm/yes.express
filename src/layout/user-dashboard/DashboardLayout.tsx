@@ -8,13 +8,11 @@ const DashboardLayout = () => {
         <img width={200} height={200} src="/icons/logo.png" alt="dashboard-logo" />
       </div>
 
-      <div className="container mx-auto my-15 px-5 h-full flex justify-center items-center">
-        <div className="flex h-[70vh] bg-gray-200 rounded-4xl overflow-hidden grow">
+      <div className="md:container md:mx-auto md:my-15 md:px-5 h-full flex justify-center items-center">
+        <div className="flex md:h-[70vh] h-screen bg-gray-200 md:rounded-4xl overflow-hidden grow">
           <Sidebar />
-          <div className="flex-1 overflow-auto">
-            <main className="p-4 h-full">
+          <div className="flex-1 p-4 overflow-y-scroll max-md:mb-16">
               <Outlet />
-            </main>
           </div>
         </div>
       </div>

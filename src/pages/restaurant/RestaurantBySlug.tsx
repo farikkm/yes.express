@@ -108,7 +108,7 @@ const RestaurantBySlug = () => {
           </div>
         </aside>
 
-        <div className="grow">
+        <div className="grow pb-10">
           {/* Img */}
           <div className="relative group h-[380px] w-full rounded-3xl overflow-hidden">
             <img
