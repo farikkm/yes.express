@@ -45,7 +45,7 @@ const BusketDropdown = () => {
 
   return (
     <DropdownMenuOverlay>
-      <DropdownMenuTrigger className="flex gap-2 items-center p-3 bg-green-600 opacity-90 hover:opacity-100 transition-opacity duration-200 rounded-2xl border-2 border-green-600">
+      <DropdownMenuTrigger className="dropdown-menu-trigger-green">
         <ShoppingBasket color="white" />
         <span className="text-white font-bold">30,000 sum</span>
       </DropdownMenuTrigger>
