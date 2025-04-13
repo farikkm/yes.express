@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import restaurantBg from "@/assets/images/restaurant-bg.jpg";
 import RestaurantBadge from "@/components/restaurant/RestaurantBadge";
 import { useEffect, useRef, useState } from "react";
-import RestaurantCart from "@/components/restaurant/RestaurantCart/RestaurantCart";
+import RestaurantCart from "@/components/restaurant/RestaurantCart";
 
 const categories = [
   { id: "new", label: "What's new" },
