@@ -20,7 +20,13 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`header-wrapper ${isScrolled && "shadow-md! outline-none!"}`}>
+    <header
+      className={`header-wrapper ${
+        isScrolled
+          ? "shadow-md outline-none"
+          : "outline outline-black shadow-none"
+      }`}
+    >
       <div className="flex items-center gap-5 grow">
         <Link className="shrink-0" to={"/"}>
           <img width={70} height={70} src="/icons/logo.png" alt="header-logo" />

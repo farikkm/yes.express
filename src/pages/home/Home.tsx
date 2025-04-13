@@ -15,14 +15,14 @@ const HomeDesktop = () => {
     <>
       <Header />
       <main className="mt-30">
-        <div className="container mx-auto px-5 space-y-4">
-          <h2 className="text-3xl font-bold">Вы заказывали: </h2>
+        <div className="container mx-auto px-8 space-y-4">
+          <h2 className="home-title">Вы заказывали: </h2>
           <Slider />
           <FilterPanel />
-          <h2 className="text-3xl font-bold">Предложения: </h2>
+          <h2 className="home-title">Предложения: </h2>
           <Slider />
           <div className="my-10 space-y-4">
-            <h2 className="text-3xl font-bold">Рестораны</h2>
+            <h2 className="home-title">Рестораны</h2>
             <div className="home-restaurants">
               {[...Array(16)].map((_, index) => (
                 <RestaurantItem key={index} />
@@ -43,18 +43,18 @@ const HomeMobile = () => {
         <AddressDropDown />
       </div>
       <div className="mt-6 pl-8 space-y-2">
-        <h2 className="text-3xl font-bold">Вы заказывали: </h2>
+        <h2 className="home-title">Вы заказывали: </h2>
         <SliderMobile />
       </div>
       <div className="px-8">
         <FilterPanel />
       </div>
       <div className="mt-6 pl-8 space-y-2">
-        <h2 className="text-3xl font-bold">Акции: </h2>
+        <h2 className="home-title">Акции: </h2>
         <SliderMobile />
       </div>
       <div className="mt-6 pl-8 space-y-2">
-        <h2 className="text-3xl font-bold">Скидки: </h2>
+        <h2 className="home-title">Скидки: </h2>
         <SliderMobile />
       </div>
 

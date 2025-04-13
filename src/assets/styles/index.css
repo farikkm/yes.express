@@ -122,6 +122,10 @@
   }
 }
 
+.wrapper {
+  overflow-x: hidden;
+}
+
 /* Scroll bar */
 
 ::-webkit-scrollbar-thumb {
@@ -133,9 +137,8 @@
 
 /* =========================== Header =========================== */
 .header-wrapper {
-  @apply fixed top-0 left-0 flex items-center gap-3 px-5 py-2 w-full transition-all duration-500 z-10 bg-white outline outline-black shadow-none;
+  @apply fixed top-0 left-0 flex items-center gap-3 px-5 py-2 w-full transition-all duration-500 z-10 bg-white;
 }
-
 
 /* =========================== Authorization =========================== */
 
@@ -152,6 +155,9 @@
 }
 
 /* =========================== Home Page - Restaurants =========================== */
+.home-title {
+  @apply text-3xl font-bold select-none;
+}
 
 .home-restaurants {
   @apply grid grid-cols-[repeat(3,1fr)] max-laptop-l:grid-rows-[repeat(3,1fr)] gap-y-[16px] gap-x-[16px] laptop-l:grid-cols-[repeat(4,1fr)] laptop-l:grid-rows-[repeat(4,1fr)];
@@ -172,6 +178,19 @@
 /* =========================== Navigation =========================== */
 .arrow-left {
   @apply cursor-pointer rounded-full px-1 py-1.5 bg-gray-200 hover:bg-gray-300 transition-all duration-200;
+}
+
+.more-button {
+  @apply cursor-pointer rounded-2xl px-1 py-1.5 hover:bg-gray-100 transition-all duration-200;
+}
+
+/*  =========================== Filter-Panel =========================== */
+.filter-items {
+  @apply flex items-center justify-between gap-2 bg-gray-200 rounded-2xl w-full px-2 py-2 relative overflow-hidden max-sm:overflow-x-scroll;
+}
+
+.filter-item {
+  @apply whitespace-nowrap rounded-full py-2 px-4 text-sm hover:bg-gray-300 border-none ring-0;
 }
 
 /* =========================== Sidebar =========================== */

@@ -6,7 +6,7 @@ import SearchRestaurants from "./pages/mobile/SearchRestaurants";
 import NotificationsPage from "./pages/mobile/NotificationsPage";
 import BusketPage from "./pages/mobile/BusketPage";
 
-const Home = lazy(() => import("@/pages/home/Home"))
+const Home = lazy(() => import("@/pages/home/Home"));
 const SignIn = lazy(() => import("@/pages/authorization/SignIn"));
 const Password = lazy(() => import("@/pages/authorization/Password"));
 const Login = lazy(() => import("@/pages/authorization/LogIn"));
@@ -23,37 +23,41 @@ const Notifications = lazy(
   () => import("@/pages/user-dashboard/Notifications")
 );
 const Help = lazy(() => import("@/pages/user-dashboard/Help"));
-const RestaurantBySlug = lazy(() => import("@/pages/restaurant/RestaurantBySlug"));
+const RestaurantBySlug = lazy(
+  () => import("@/pages/restaurant/RestaurantBySlug")
+);
 // const RestaurantById = lazy(() => import("@/pages/restaurant/RestaurantById"));
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Suspense fallback={<LoadingScreen />}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/welcome" element={<Password />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/search" element={<SearchRestaurants />} />
-          <Route path="/notifications" element={<NotificationsPage />} />
-          <Route path="/busket" element={<BusketPage />} />
-          {/* <Route path="/restaurant/:id" element={<RestaurantById />} /> */}
-          <Route path="/restaurant/:slug" element={<RestaurantBySlug />} />
-          <Route path="/user/dashboard/" element={<DashboardLayout />}>
-            <Route index element={<Navigate to="profile" replace />} />
-            <Route path="orders" element={<Orders />} />
-            <Route path="profile" element={<Profile />} />
-            <Route path="addresses" element={<Addresses />} />
-            <Route path="payment-methods" element={<PaymentMethods />} />
-            <Route path="notifications" element={<Notifications />} />
-            <Route path="notifications" element={<Notifications />} />
-            <Route path="help" element={<Help />} />
-          </Route>
-          <Route path="/*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+    <div className="wrapper">
+      <BrowserRouter>
+        <Suspense fallback={<LoadingScreen />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/welcome" element={<Password />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/search" element={<SearchRestaurants />} />
+            <Route path="/notifications" element={<NotificationsPage />} />
+            <Route path="/busket" element={<BusketPage />} />
+            {/* <Route path="/restaurant/:id" element={<RestaurantById />} /> */}
+            <Route path="/restaurant/:slug" element={<RestaurantBySlug />} />
+            <Route path="/user/dashboard/" element={<DashboardLayout />}>
+              <Route index element={<Navigate to="profile" replace />} />
+              <Route path="orders" element={<Orders />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="addresses" element={<Addresses />} />
+              <Route path="payment-methods" element={<PaymentMethods />} />
+              <Route path="notifications" element={<Notifications />} />
+              <Route path="notifications" element={<Notifications />} />
+              <Route path="help" element={<Help />} />
+            </Route>
+            <Route path="/*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    </div>
   );
 };
 

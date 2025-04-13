@@ -79,13 +79,13 @@ const NotificatonDropdown = () => {
                 <Search
                   onClick={() => setIsSearch(true)}
                   size={40}
-                  className="cursor-pointer rounded-2xl px-1 py-1.5 hover:bg-gray-100 transition-all duration-200"
+                  className="more-button"
                 />
                 <DropdownMenu>
                   <DropdownMenuTrigger>
                     <EllipsisVertical
                       size={40}
-                      className="cursor-pointer rounded-2xl px-1 py-1.5 hover:bg-gray-100 transition-all duration-200"
+                      className="more-button"
                     />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
