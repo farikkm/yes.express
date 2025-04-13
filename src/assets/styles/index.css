@@ -110,7 +110,9 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   --breakpoint-iphone-se: 375px;
-  --breakpoint-laptop-l: 1440px
+  --breakpoint-mobile-l: 425px;
+  --breakpoint-laptop-l: 1440px;
+  --breakpoint-pc: 1800px;
 }
 
 @layer base {
@@ -217,4 +219,22 @@
 
 .dropdown-menu-label {
   @apply w-[300px] flex items-center gap-3 px-2 py-3 rounded-2xl bg-gray-100 hover:bg-gray-200 transition-all duration-200 cursor-pointer;
+}
+
+/* =========================== Restaurant Cart =========================== */
+.restaurant-cart-button {
+  @apply mt-4 flex items-center justify-center py-3 rounded-2xl gap-1 w-full bg-gray-200 hover:bg-gray-300 transition duration-200 grow;
+}
+
+.restaurant-back-button {
+  @apply mb-4 bg-gray-200 hover:bg-gray-300 transition-all duration-200 px-2 py-4 w-full inline-flex items-center gap-2 rounded-2xl;
+}
+
+.restaurant-sidebar-link {
+  @apply cursor-pointer transition-all duration-300 ease-in-out px-2 py-3 w-full inline-flex items-center gap-2 rounded-2xl;
+}
+
+/* =========================== Product Cart =========================== */
+.product-cart-wrapper {
+  @apply rounded-3xl flex max-pc:flex-col items-center p-8 2xl:gap-25 xl:gap-15 gap-8 max-w-[50vw]! h-[50vh] overflow-x-hidden;
 }
