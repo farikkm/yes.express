@@ -80,98 +80,103 @@ const RestaurantBySlug = () => {
   const isMobile = useMediaQuery({ maxWidth: 1023 });
 
   return (
-    <div className="bg-gray-100 h-full">
-      {!isMobile ? <Header /> : <NavigationBar />}
-      <div className="lg:container mx-auto px-5 lg:pt-30 pt-8 flex gap-10">
-        {!isMobile && (
-          <aside className="w-55 relative" ref={sidebarRef}>
-            <div className="fixed w-55">
-              <Link className="restaurant-back-button" to={"/"}>
-                <ArrowLeft size={20} className="cursor-pointer rounded-full" />
-                <span className="font-medium">All restaurants</span>
-              </Link>
+    <>
+      <div className="bg-gray-100 h-full">
+        {!isMobile ? <Header /> : <NavigationBar />}
+        <div className="lg:container mx-auto px-5 lg:pt-30 pt-8 flex gap-10">
+          {!isMobile && (
+            <aside className="w-55 relative" ref={sidebarRef}>
+              <div className="fixed w-55">
+                <Link className="restaurant-back-button" to={"/"}>
+                  <ArrowLeft
+                    size={20}
+                    className="cursor-pointer rounded-full"
+                  />
+                  <span className="font-medium">All restaurants</span>
+                </Link>
 
-              <nav className="mt-8">
-                <h3 className="font-medium text-2xl">Menu</h3>
-                <ul className="list-none mt-2 space-y-2 select-none">
-                  {categories.map(({ id, label }) => (
-                    <li
-                      key={id}
-                      onClick={() => scrollToCategory(id)}
-                      className={`restaurant-sidebar-link
+                <nav className="mt-8">
+                  <h3 className="font-medium text-2xl">Menu</h3>
+                  <ul className="list-none mt-2 space-y-2 select-none">
+                    {categories.map(({ id, label }) => (
+                      <li
+                        key={id}
+                        onClick={() => scrollToCategory(id)}
+                        className={`restaurant-sidebar-link
                       ${
                         activeCategory === id
                           ? "bg-white text-black font-semibold shadow"
                           : "text-gray-700 hover:bg-white"
                       }`}
-                    >
-                      {label}
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
-          </aside>
-        )}
+                      >
+                        {label}
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </div>
+            </aside>
+          )}
 
-        <div className="grow pb-10">
-          {/* Img */}
-          <div className="relative group lg:h-[380px] h-[300px] w-full rounded-3xl overflow-hidden">
-            <img
-              className="h-full w-full object-cover"
-              src={restaurantBg}
-              alt="restaurant-bg"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent"></div>
-            <div className="absolute top-[50%] max-mobile-l:top-[70%] lg:left-10 left-4">
-              <h2 className="text-6xl font-bold text-white">KFC</h2>
-              <div className="mt-6 items-center gap-2 mobile-l:flex hidden">
-                <RestaurantBadge
-                  icon={Truck}
-                  iconSize={25}
-                  title="15-25"
-                  subtitle="min"
-                />
-                <RestaurantBadge
-                  icon={Star}
-                  iconSize={25}
-                  title="4.7"
-                  subtitle="500+"
-                />
-                <div className="flex items-center gap-2 bg-gray-200 opacity-90 px-5 py-2 rounded-2xl">
-                  <Info size={40} />
+          <div className="grow pb-10">
+            {/* Img */}
+            <div className="relative group lg:h-[380px] h-[300px] w-full rounded-3xl overflow-hidden">
+              <img
+                className="h-full w-full object-cover"
+                src={restaurantBg}
+                alt="restaurant-bg"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent"></div>
+              <div className="absolute top-[50%] max-mobile-l:top-[70%] lg:left-10 left-4">
+                <h2 className="text-6xl font-bold text-white">KFC</h2>
+                <div className="mt-6 items-center gap-2 mobile-l:flex hidden">
+                  <RestaurantBadge
+                    icon={Truck}
+                    iconSize={25}
+                    title="15-25"
+                    subtitle="min"
+                  />
+                  <RestaurantBadge
+                    icon={Star}
+                    iconSize={25}
+                    title="4.7"
+                    subtitle="500+"
+                  />
+                  <div className="flex items-center gap-2 bg-gray-200 opacity-90 px-5 py-2 rounded-2xl">
+                    <Info size={40} />
+                  </div>
                 </div>
               </div>
             </div>
+
+            {categories.map(({ id, label }) => (
+              <div
+                key={id}
+                data-id={id}
+                ref={(el) => {
+                  sectionRefs.current[id] = el;
+                }}
+                className="mt-5 space-y-5 mb-10 scroll-mt-32"
+              >
+                <div>
+                  <h2 className="text-4xl font-bold">{label}</h2>
+
+                  <div className="mt-4 grid grid-cols-1 mobile-l:grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-y-[16px] gap-x-[16px]">
+                    {[...Array(4)].map((_, index) =>
+                      !isMobile ? (
+                        <RestaurantCart key={index} />
+                      ) : (
+                        <RestaurantCartMobile key={index} />
+                      )
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-
-          {categories.map(({ id, label }) => (
-            <div
-              key={id}
-              data-id={id}
-              ref={(el) => {
-                sectionRefs.current[id] = el;
-              }}
-              className="mt-5 space-y-5 mb-10 scroll-mt-32"
-            >
-              <div>
-                <h2 className="text-4xl font-bold">{label}</h2>
-
-                <div className="mt-4 grid grid-cols-1 mobile-l:grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-y-[16px] gap-x-[16px]">
-                  {[...Array(4)].map((_, index) =>
-                    !isMobile ? (
-                      <RestaurantCart key={index} />
-                    ) : (
-                      <RestaurantCartMobile key={index} />
-                    )
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
